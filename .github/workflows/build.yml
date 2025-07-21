@@ -11,28 +11,25 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
   cancel-in-progress: true
 
-env:
-  BUILD_PATH: '.' # default value when not using subfolders
-
-defaults:
-  run:
-    shell: bash
-
 jobs:
   build:
     name: Generate build artifacts
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        shell: bash
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup `pnpm`
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: latest
 
       - name: Setup `node`
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: latest
           cache: pnpm
@@ -46,15 +43,28 @@ jobs:
         run: |
           pnpm build
 
-      - name: Set updated date as build artifact file prefix
-        id: prefix
-        run: |
-          echo "prefix=$(date +'%Y%m%d%H%M%S' --date=${{ github.event.repository.updated_at }})" >> $GITHUB_OUTPUT
-
       # Astro will produce a build in `dist/`
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: build-${{ steps.prefix.outputs.prefix }}
-          path: |
-            ${{ env.BUILD_PATH }}/dist/
+          path: ./dist/
+
+  deploy:
+    needs: build
+    name: Deploy to GitHub Pages
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Grant `GITHUB_TOKEN` the permissions required to deploy
+    permissions:
+      pages: write
+      id-token: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
