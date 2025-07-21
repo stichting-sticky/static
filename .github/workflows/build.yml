@@ -35,7 +35,7 @@ jobs:
 
       - name: Generate a production build
         run: |
-          npm build
+          npm run build
 
       # Astro will produce a build in `dist/`
       - name: Upload build artifacts
