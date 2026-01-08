@@ -1,9 +1,21 @@
 {
-  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "name": "Stichting Sticky",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fffff6",
-  "theme_color": "#e46ca7",
-  "description": "Stichting Sticky is een organisatie die zich bezig houdt met het organiseren van activiteiten ten behoeve van Studievereniging Sticky."
+  "background_color": "oklch(99.7% 0.012 106.6)",
+  "theme_color": "oklch(69.1% 0.162 351.4)",
+  "description": "Stichting Sticky is een organisatie die zich bezig houdt met het organiseren van activiteiten ten behoeve van Studievereniging Sticky.",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }

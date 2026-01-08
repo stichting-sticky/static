@@ -1,6 +1,6 @@
 ---
-import '@fontsource/lato/300.css'
-import '@fontsource/lato/700.css'
+import '@fontsource/lora/400.css'
+import '@fontsource/lora/700.css'
 
 import '~/styles/global.css'
 
@@ -32,15 +32,20 @@ const keywords = [
 
 <!DOCTYPE html>
 
-<html lang="nl-NL" class="font-light font-sans-serif text-dark-grey">
+<html lang="nl" class="selection:bg-primary-lighter selection:text-background text-foreground dark:text-background font-serif antialiased">
 
 <head>
   <meta charset="utf-8" />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon-180x180.png" />
+
+  <link rel="manifest" href="/manifest.json" />
+
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <meta name="theme-color" content="#e46ca7" />
+  <meta name="theme-color" content="oklch(69.1% 0.162 351.4)" />
   <meta name="color-scheme" content="only light" />
 
   <meta name="author" content="Stichting Sticky" />
@@ -49,14 +54,13 @@ const keywords = [
 
   <meta name="generator" content={Astro.generator} />
 
-  <link rel="manifest" href="/manifest.json" />
-
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
 
   <title>{title}</title>
 </head>
 
-<body class="flex flex-col justify-center min-h-screen bg-off-white">
+<body class="bg-background dark:bg-foreground flex min-h-screen flex-col justify-center">
   <slot />
 </body>
 
