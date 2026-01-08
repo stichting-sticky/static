@@ -1,11 +1,64 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* Extend preflight */
 @layer base {
-  ::selection {
-    @apply text-white bg-pink/50;
+  :root,
+  :host {
+    text-size-adjust: none;
+    hanging-punctuation: first allow-end last;
+  }
+
+  /* Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span {
+    overflow-wrap: break-word;
+  }
+
+  /* Improve line wrapping */
+  p {
+    hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
   }
 }
 
-@tailwind variants;
+@theme {
+  --font-serif: "Lora", serif;
+
+  /* Override default colors */
+  --color-*: initial;
+
+  --color-primary: oklch(69.1% 0.162 351.4); /* = #e46ca7 */
+  --color-primary-lighter: oklch(80% 0.162 351.4); /* = #ff8fca */
+  --color-primary-highlight: oklch(85.7% 0.1036 351.4); /* = #ffb4d8 */
+
+  --color-secondary: oklch(64.7% 0.089 184.7); /* = #44a095 */
+  --color-secondary-lighter: oklch(78% 0.06 189.8); /* = #8ac4c0 */
+  --color-secondary-highlight: oklch(87.6% 0.048 188.1); /* = #b3e1dc */
+
+  --color-foreground: oklch(25.2% 0 0); /* = #222222 */
+  --color-background: oklch(99.7% 0.012 106.6); /* = #fffff6 */
+
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-current: currentColor;
+}
+
+@utility link {
+  @apply text-secondary dark:text-secondary-lighter hyphens-none underline decoration-current/40 decoration-2 underline-offset-2 transition-opacity hover:opacity-80 focus:opacity-60 focus:outline-2 focus:outline-offset-2;
+}
