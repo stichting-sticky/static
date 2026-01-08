@@ -1,43 +1,28 @@
-<img
-  src="./src/assets/logo.svg"
-  alt="Stichting Sticky's logo"
-  width="128px"
-  height="128px" />
+![Stichting Sticky's logo](./logo.svg)
 
 # Stichting Sticky
 
+Repository with the source code for the [stichtingsticky.nl](https://stichtingsticky.nl/) website. Build with Astro 🚀
+
 ## Getting started
 
-This project requires `pnpm` to install dependencies and produce a build.
-
-To install all dependencies run the following command:
-
-```bash
-$ pnpm install
+```sh
+# Clone the repository
+$ git clone git@github.com:stichting-sticky/static.git
 ```
 
-## Usage
+### Commands
 
-To start an development server run the following command:
+This project requires `bun` to be installed 🥟
 
-```bash
-$ pnpm start
-```
-
-## Building
-
-To generate an optimized build run the following command:
-
-```bash
-$ pnpm build
-```
-
-A convenient preview server can be used to serve the build artifacts by running the following command:
-
-```bash
-$ pnpm preview
-```
+| Command           | Action                                                              |
+| :---------------- | :------------------------------------------------------------------ |
+| `bun install`     | Installs dependencies                                               |
+| `bun run start`   | Starts local dev server at [localhost:4321](http://localhost:4321/) |
+| `bun run build`   | Generates build artifacts in [`./dist/`](./dist/)                   |
+| `bun run check`   | Check your project for errors                                       |
+| `bun run preview` | Preview your build locally                                          |
 
 ## License
 
-Copyright 2023 Stichting Sticky. All Rights Reserved. This project is licensed under the terms of the `MIT` license. You can check out the full license [here](./LICENSE).
+Copyright 2023 Stichting Sticky. All Rights Reserved. This project is licensed under the terms of the MIT license. View the [full license](./LICENSE).
