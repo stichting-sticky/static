@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/stichting-sticky/static.git"
   },
-  "author": "Sem van Nieuwenhuizen <bestuur@stichtingsticky.nl>",
+  "author": "Semele <hello@semele.fyi>",
   "private": true,
   "scripts": {
     "start": "astro check --watch & astro dev",

@@ -25,4 +25,4 @@ This project requires `bun` to be installed 🥟
 
 ## License
 
-Copyright 2023 Stichting Sticky. All Rights Reserved. This project is licensed under the terms of the MIT license. View the [full license](./LICENSE).
+Copyright 2020 - 2026 Semele. All Rights Reserved. This project is licensed under the terms of the MIT license. View the [full license](./LICENSE).
