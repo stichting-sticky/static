@@ -5,6 +5,10 @@ on:
   # Allow manual triggering of this workflow
   workflow_dispatch:
 
+  # Run this workflow once per year
+  schedule:
+    - cron: '0 0 1 1 *'
+
 # Ensure only the latest job runs on the same branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
