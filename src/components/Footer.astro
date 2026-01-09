@@ -1,0 +1,21 @@
+---
+import Logo from "@assets/logo.svg";
+
+import Section from "@components/Section.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-background dark:bg-foreground-lighter mt-auto py-4 sm:py-8">
+  <Section>
+    <a href="#" class="flex flex-col items-center">
+      <Logo class="h-12 w-12 fill-current" />
+    </a>
+  </Section>
+
+  <Section>
+    <p class="text-center">
+      Copyright {year} Stichting Sticky. Alle rechten voorbehouden.
+    </p>
+  </Section>
+</footer>

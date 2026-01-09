@@ -1,38 +1,40 @@
 ---
-import '@fontsource/lora/400.css'
-import '@fontsource/lora/700.css'
+import { type HTMLAttributes } from "astro/types";
 
-import '~/styles/global.css'
+import "@fontsource/lora/400.css";
+import "@fontsource/lora/700.css";
 
-export interface Props {
-  title?: string
-  description?: string
-}
+import Footer from "@components/Footer.astro";
 
-const {
-  title = 'Stichting Sticky',
-  description = 'Stichting Sticky is een organisatie die zich bezig houdt met het organiseren van activiteiten ten behoeve van de te Utrecht gevestigde vereniging Studievereniging Sticky.',
-} = Astro.props as Props
+import "@styles/global.css";
+
+type Props = HTMLAttributes<"body"> & {
+  title?: string;
+};
+
+let { title, ...attributes } = Astro.props;
+
+title &&= `${title} | Stichting Sticky`;
 
 const keywords = [
-  'stichting',
-  'studie',
-  'studievereniging',
-  'Sticky',
-  'Utrecht',
-  'student',
-  'students',
-  'computer',
-  'information',
-  'science',
-  'sciences',
-  'university',
-]
+  "stichting",
+  "studie",
+  "studievereniging",
+  "Sticky",
+  "Utrecht",
+  "student",
+  "students",
+  "computer",
+  "information",
+  "science",
+  "sciences",
+  "university",
+];
+
+const description = "Stichting Sticky is een organisatie die zich bezig houdt met het organiseren van activiteiten ten behoeve van de te Utrecht gevestigde vereniging Studievereniging Sticky.";
 ---
 
-<!DOCTYPE html>
-
-<html lang="nl" class="selection:bg-primary-lighter selection:text-background text-foreground dark:text-background font-serif antialiased">
+<html lang="nl" class="selection:bg-primary-lighter selection:text-background text-foreground-lighter  dark:text-background font-serif antialiased">
 
 <head>
   <meta charset="utf-8" />
@@ -46,22 +48,32 @@ const keywords = [
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <meta name="theme-color" content="oklch(69.1% 0.162 351.4)" />
-  <meta name="color-scheme" content="only light" />
+  <meta name="color-scheme" content="light dark" />
 
   <meta name="author" content="Stichting Sticky" />
-  <meta name="description" content={description} />
   <meta name="keywords" content={keywords.join()} />
+  <meta name="description" content={description} />
 
   <meta name="generator" content={Astro.generator} />
 
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
-  <title>{title}</title>
+  <title>{title ?? "Stichting Sticky"}</title>
 </head>
 
-<body class="bg-background dark:bg-foreground flex min-h-screen flex-col justify-center">
+<body class:list={[
+  "bg-background",
+  "dark:bg-foreground",
+  "flex",
+  "min-h-screen",
+  "flex-col",
+  "justify-center",
+  ...attributes.class?.split(" ") ?? [],
+]}>
   <slot />
+
+  <Footer />
 </body>
 
 </html>

@@ -50,8 +50,13 @@
   --color-secondary-lighter: oklch(78% 0.06 189.8); /* = #8ac4c0 */
   --color-secondary-highlight: oklch(87.6% 0.048 188.1); /* = #b3e1dc */
 
-  --color-foreground: oklch(25.2% 0 0); /* = #222222 */
+  --color-foreground: oklch(17.8% 0 0); /* = #111111 */
+  --color-foreground-lighter: oklch(25.2% 0 0); /* = #222222 */
+  --color-foreground-highlight: oklch(38.7% 0 0); /* = #444444 */
+
   --color-background: oklch(99.7% 0.012 106.6); /* = #fffff6 */
+  --color-background-darker: oklch(98.6% 0.012 106.6); /* = #fbfbf2 */
+  --color-subtle-highlight: oklch(93.9% 0.011 10.3); /* = #f2e8e9 */
 
   --color-black: #000;
   --color-white: #fff;
@@ -60,5 +65,5 @@
 }
 
 @utility link {
-  @apply text-secondary dark:text-secondary-lighter hyphens-none underline decoration-current/40 decoration-2 underline-offset-2 transition-opacity hover:opacity-80 focus:opacity-60 focus:outline-2 focus:outline-offset-2;
+  @apply text-secondary dark:text-secondary-lighter hyphens-none underline decoration-current/40 underline-offset-2 transition-opacity hover:opacity-80 focus:opacity-60 focus:outline-2 focus:outline-offset-2;
 }

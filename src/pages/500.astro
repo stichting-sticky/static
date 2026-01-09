@@ -1,0 +1,13 @@
+---
+import Layout from "@layouts/Error.astro";
+
+type Props = {
+  error: unknown;
+};
+
+const { error } = Astro.props;
+
+const message = error instanceof Error ? error.message.toUpperCase() : "INTERNAL SERVER ERROR";
+---
+
+<Layout message={message} status="500" />

@@ -1,0 +1,23 @@
+---
+import Layout from "@layouts/Base.astro";
+
+import Container from "@components/Container.astro";
+
+type Props = {
+  message: string;
+  status: string;
+};
+
+const { message, status } = Astro.props;
+---
+
+<Layout class="bg-primary text-background" title={status}>
+  <main class="my-8 flex-1 flex-wrap content-center">
+    <Container>
+      <code class="bg-primary-lighter dark:bg-black p-1 before:content-['`'] after:content-['`']">{status}</code>
+      <h1 class="mb-4 text-6xl sm:mb-8 sm:text-8xl">{message}</h1>
+
+      <a class="link text-background font-mono before:content-['%=_']" href="/">go back home</a>
+    </Container>
+  </main>
+</Layout>

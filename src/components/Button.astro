@@ -1,0 +1,11 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const attributes = Astro.props;
+---
+
+<a class="bg-secondary text-background dark:bg-secondary-lighter focus:ring-secondary/40 p-2 font-bold transition-opacity hover:opacity-80 focus:opacity-60 focus:ring-2 focus-visible:outline-none" role="button" {...attributes}>
+  <slot />
+</a>

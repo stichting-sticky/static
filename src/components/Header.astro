@@ -1,0 +1,21 @@
+---
+import Logo from "@assets/logo.svg";
+
+import Button from "@components/Button.astro";
+import Container from "@components/Container.astro";
+---
+
+<header class="my-2 sm:my-12">
+  <Container>
+    <nav class="flex items-center justify-between"
+    >
+      <a href="/">
+        <Logo class="fill-primary dark:fill-primary-lighter" />
+      </a>
+
+      <Button href="https://execut.nl/">
+        Studenten conferentie exec(ut)
+      </Button>
+    </nav>
+  </Container>
+</header>
