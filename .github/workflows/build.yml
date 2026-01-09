@@ -1,62 +1,40 @@
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-  # Runs on pushes targeting the default branch
   push:
     branches: [main]
+
+  # Allow manual triggering of this workflow
+  workflow_dispatch:
 
 # Ensure only the latest job runs on the same branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
   cancel-in-progress: true
 
+# Grant this job the permissions required to deploy
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     name: Generate build artifacts
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: bash
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - name: Setup `node`
-        uses: actions/setup-node@v4
-        with:
-          node-version: latest
-
-      # This step will fail if `pnpm-lock.yaml` is missing or an update is needed
-      - name: Install dependencies
-        run: |
-          npm install
-
-      - name: Generate a production build
-        run: |
-          npm run build
-
-      # Astro will produce a build in `dist/`
-      - name: Upload build artifacts
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist/
+      - name: Generate and upload build artifacts
+        uses: withastro/action@v5
 
   deploy:
     needs: build
-    name: Deploy to GitHub Pages
 
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-    # Grant `GITHUB_TOKEN` the permissions required to deploy
-    permissions:
-      pages: write
-      id-token: write
-
-    runs-on: ubuntu-latest
 
     steps:
       - name: Deploy to GitHub Pages
