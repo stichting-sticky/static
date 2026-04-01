@@ -16,11 +16,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/sitemap": "^3.6.1",
+    "@astrojs/check": "0.9.8",
+    "@astrojs/sitemap": "3.7.2",
     "@fontsource/lora": "^5.2.8",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.8",
-    "tailwindcss": "^4.1.18"
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "6.1.2",
+    "tailwindcss": "^4.2.2"
   }
 }
