@@ -429,41 +429,28 @@ main {
   }
 }
 
-/* Cards */
-.cards {
-  display: grid;
-  gap: 1rem;
+/* Ledger: label/value rows separated by hairlines */
+.ledger {
   margin: 1.5rem 0 0;
-  padding: 0;
-  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.ledger > div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 @media (min-width: 640px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
+  .ledger > div {
+    grid-template-columns: 13rem 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
   }
 }
 
-.card {
-  display: block;
-  height: 100%;
-  padding: 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  background: var(--card);
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.15s, border-color 0.15s;
-}
-
-a.card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-}
-
-.card__label {
-  display: block;
-  margin-bottom: 0.25rem;
+.ledger dt {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -471,54 +458,38 @@ a.card:hover {
   color: var(--accent);
 }
 
-.card__title {
-  display: block;
-  font-size: 1.125rem;
-  font-weight: 700;
+.ledger dd {
+  margin: 0;
+  min-width: 0;
   color: var(--heading);
 }
 
-.card__link {
-  display: inline-block;
-  margin-top: 0.75rem;
+.ledger__mono {
+  font-family: var(--mono);
+  overflow-wrap: anywhere;
+}
+
+.ledger__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  color: inherit;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ledger__hint {
   font-size: 0.875rem;
+  font-weight: 400;
   color: var(--link);
 }
 
-.details {
-  margin: 1.5rem 0 2rem;
-}
-
-.details .card {
-  border: 0;
-  background: var(--card-alt);
-}
-
-.details dt {
-  margin-bottom: 0.25rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
-
-.details dd {
-  margin: 0;
-  font-family: var(--mono);
-  white-space: nowrap;
-  color: var(--heading);
-}
-
-.addresses {
-  display: grid;
-  gap: 2rem;
-}
-
-@media (min-width: 640px) {
-  .addresses {
-    grid-template-columns: 1fr 1fr;
-  }
+.ledger__link:hover .ledger__hint {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 address {
