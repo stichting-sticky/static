@@ -577,50 +577,48 @@ address {
 
 /* Error page */
 .error {
-  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
-  padding: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
 }
 
-.error__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 6rem;
-  padding-bottom: 3rem;
+.error__logo {
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.error__logo svg {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  fill: currentColor;
 }
 
 .error__code {
-  margin: 0 0 1rem;
-  font-size: clamp(6rem, 20vw, 11rem);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
   font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: var(--accent);
+  letter-spacing: 0.2em;
+  color: var(--text);
+  opacity: 0.7;
 }
 
 .error h1 {
-  max-width: 40rem;
-  margin-bottom: 1rem;
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  line-height: 1.2;
 }
 
 .error__text {
-  max-width: 34rem;
+  max-width: 28rem;
   margin-bottom: 2rem;
-  font-size: 1.125rem;
 }
 
 .error__home {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
   background: var(--heading);
@@ -632,42 +630,6 @@ address {
 
 .error__home:hover {
   opacity: 0.85;
-}
-
-a:hover .arrow--back {
-  transform: translateX(-0.25rem);
-}
-
-.error__panels {
-  display: flex;
-  flex-direction: column;
-}
-
-.error__panels .panel {
-  flex: 1;
-  padding: 2rem 1.5rem;
-}
-
-.error__panels .panel__title {
-  margin-bottom: 1.5rem;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-}
-
-@media (min-width: 768px) {
-  .error__panels {
-    flex-direction: row;
-  }
-
-  .error__panels .panel {
-    padding: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .error__panels .panel {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
 }
 
 /* Reveal-on-scroll (enabled by script.js) */
