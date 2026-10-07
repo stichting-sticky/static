@@ -1,8 +1,2 @@
-# Dependencies
-node_modules/
-
-# Build artifacts
-dist/
-
-# Generated types
-.astro/
+# macOS
+.DS_Store
