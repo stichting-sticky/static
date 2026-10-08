@@ -1,8 +1,8 @@
-![Stichting Sticky's logo](./logo.svg)
+![Stichting Sticky's logo](./assets/images/logo.svg)
 
 # Stichting Sticky
 
-Repository with the source code for the [stichtingsticky.nl](https://stichtingsticky.nl/) website. Build with Astro 🚀
+Repository with the source code for the [stichtingsticky.nl](https://stichtingsticky.nl/) website. Plain HTML, CSS and a little JavaScript — no build step.
 
 ## Getting started
 
@@ -11,17 +11,13 @@ Repository with the source code for the [stichtingsticky.nl](https://stichtingst
 $ git clone git@github.com:stichting-sticky/static.git
 ```
 
-### Commands
+The site lives in the repository root: the pages are the `*.html` files, and everything they use (styles, scripts, fonts, images and documents such as the statutes) is in [`./assets/`](./assets/). To preview locally, serve the folder with any static file server:
 
-This project requires `bun` to be installed 🥟
+```sh
+$ python3 -m http.server 4321
+```
 
-| Command           | Action                                                              |
-| :---------------- | :------------------------------------------------------------------ |
-| `bun install`     | Installs dependencies                                               |
-| `bun run start`   | Starts local dev server at [localhost:4321](http://localhost:4321/) |
-| `bun run build`   | Generates build artifacts in [`./dist/`](./dist/)                   |
-| `bun run check`   | Check your project for errors                                       |
-| `bun run preview` | Preview your build locally                                          |
+Then open [localhost:4321](http://localhost:4321/). Pushing to `main` deploys the site to GitHub Pages.
 
 ## License
 

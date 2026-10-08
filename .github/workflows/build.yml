@@ -5,10 +5,6 @@ on:
   # Allow manual triggering of this workflow
   workflow_dispatch:
 
-  # Run this workflow once per year
-  schedule:
-    - cron: '0 0 1 1 *'
-
 # Ensure only the latest job runs on the same branch
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
@@ -22,14 +18,16 @@ permissions:
 
 jobs:
   build:
-    name: Generate build artifacts
+    name: Upload site
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v6
 
-      - name: Generate and upload build artifacts
-        uses: withastro/action@v5
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
 
   deploy:
     needs: build
